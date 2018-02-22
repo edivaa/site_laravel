@@ -15,6 +15,22 @@ Route::get('/', function () {
     return view('site.home');
 });
 
+
+//upload of file
+/*Route::get('/upload',function(){
+    return view('site.upload');
+});*/
+
+
+
 Auth::routes();
 
+
+Route::group(['prefix'=>'arquivo'],function(){
+
+    Route::get('uploadView','UploadController@index')->name('uploadView');
+    Route::post('upload/{action}','UploadController@upload')->name('upload');
+
+});
+//Route::get('/upload', 'UploadController@index')->name('upload');
 Route::get('/home', 'HomeController@index')->name('home');
