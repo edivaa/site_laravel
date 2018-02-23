@@ -43,9 +43,21 @@ class UploadController extends Controller
               abort(400, 'Nenhum arquivo foi enviado.');
         }
 
-        dd($file) ;
-        echo "Aquivo ok"; dd($file->getClientOriginalName());
+       // dd($file->path()) ;
+        $fh= fopen($file->path(),"r");//Abrindo arquivo
+       // $header = fgetcsv();//lendo arquivo
 
+
+        
+        while ($line = fgetcsv($fh)){
+
+            //$arrayLinha=  explode(" ",$line);
+            //$cod=substr($arrayLinha[0], 0, 2);//getAção 
+            //if($cod="20")
+               dump($line);
+
+        }
+      
         //$path = $file->store('uploads');
 
         // Faça qualquer coisa com o arquivo enviado...
