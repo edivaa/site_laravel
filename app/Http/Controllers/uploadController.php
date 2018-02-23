@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UploadController extends Controller
 {
@@ -27,8 +28,26 @@ class UploadController extends Controller
        
     }
 
-    public function upload(Request $request,$action){
+    public function upload(Request $request){
 
-        return "Carregando arquivo";
+       
+        /*
+        * O campo do form com o arquivo tinha o atributo name="file".
+        */
+        $file = $request->file('file');
+
+    
+
+        if (empty($file)) {
+         
+              abort(400, 'Nenhum arquivo foi enviado.');
+        }
+
+        dd($file) ;
+        echo "Aquivo ok"; dd($file->getClientOriginalName());
+
+        //$path = $file->store('uploads');
+
+        // Faça qualquer coisa com o arquivo enviado...
     }
 }
