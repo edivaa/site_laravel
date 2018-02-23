@@ -1,16 +1,13 @@
 @extends('layouts.site')
 
-<header>
- <!-- CSRF Token -->
- <meta name="csrf-token" content="{{ csrf_token() }}">
-</header>
-
 @section('content')
-<form action="arquivo/upload">
+<form enctype="multipart/form-data"  action="upload" method="post"  >
+    {{ csrf_field() }}
+
     <div class="file-field input-field">
       <div class="btn">
         <span>File</span>
-        <input type="file">
+        <input type="file" name='file' id='file'>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
