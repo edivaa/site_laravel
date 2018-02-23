@@ -25,15 +25,16 @@
      <link rel="stylesheet" type="text/css" href="{{asset('lib/materialize/dist/css/materialize.css')}}"> 
      <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 </head>
-<body>
-    <div id="app">
+<body id="app-layout">
+
               
          <header>
          @include('layouts._site._nave')
          </header>
 
         @yield('content')
-    </div>
+        @include('layouts._site._footer')
+   
 
     <!-- Scripts -->
     <!--script src="{{ asset('js/app.js') }}"></script-- BootStrap-->
