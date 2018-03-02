@@ -30,6 +30,7 @@ Route::group(['prefix'=>'arquivo'],function(){
 
     Route::get('uploadView','UploadController@index')->name('uploadView');
     Route::post('upload','UploadController@upload')->name('upload');
+    Route::get('upload','UploadController@upload')->name('upload');
 
 });
 //Route::get('/upload', 'UploadController@index')->name('upload');
